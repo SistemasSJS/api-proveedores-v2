@@ -1,16 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\ProductController;
-use App\Http\Controllers\Api\BrandController;
-use App\Http\Controllers\Api\LineController;
-use App\Http\Controllers\Api\CategoryController;
-use App\Http\Controllers\Api\CatalogController;
-use App\Http\Controllers\Api\ProviderController;
+use App\Http\Controllers\Api\ProductoController;
+use App\Http\Controllers\Api\MarcaController;
+use App\Http\Controllers\Api\LineaController;
+use App\Http\Controllers\Api\CategoriaController;
+use App\Http\Controllers\Api\CatalogoController;
+use App\Http\Controllers\Api\ProveedorController;
 
-Route::apiResource('products', ProductController::class);
-Route::apiResource('brands', BrandController::class);
-Route::apiResource('lines', LineController::class);
-Route::apiResource('categories', CategoryController::class);
-Route::apiResource('catalogs', CatalogController::class);
-Route::apiResource('providers', ProviderController::class);
+Route::apiResource('Productos', ProductoController::class);
+Route::apiResource('Marcas', MarcaController::class);
+Route::apiResource('Lineas', LineaController::class);
+Route::apiResource('categories', CategoriaController::class);
+Route::apiResource('Catalogos', CatalogoController::class);
+Route::apiResource('Proveedors', ProveedorController::class);
