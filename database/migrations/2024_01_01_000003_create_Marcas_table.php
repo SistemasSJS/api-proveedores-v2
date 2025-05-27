@@ -8,7 +8,7 @@ class CreateMarcasTable extends Migration
 {
     public function up()
     {
-        Schema::create('Marcas', function (Blueprint $table) {
+        Schema::create('marcas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->unique();
             $table->string('photo_path')->nullable();
@@ -18,6 +18,6 @@ class CreateMarcasTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('Marcas');
+        Schema::dropIfExists('marcas');
     }
 }

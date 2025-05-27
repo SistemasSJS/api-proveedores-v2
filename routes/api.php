@@ -8,9 +8,9 @@ use App\Http\Controllers\Api\CategoriaController;
 use App\Http\Controllers\Api\CatalogoController;
 use App\Http\Controllers\Api\ProveedorController;
 
-Route::apiResource('Productos', ProductoController::class);
-Route::apiResource('Marcas', MarcaController::class);
-Route::apiResource('Lineas', LineaController::class);
-Route::apiResource('categories', CategoriaController::class);
-Route::apiResource('Catalogos', CatalogoController::class);
-Route::apiResource('Proveedors', ProveedorController::class);
+Route::apiResource('productos', ProductoController::class);
+Route::apiResource('marcas', MarcaController::class);
+Route::apiResource('lineas', LineaController::class);
+Route::apiResource('categoria', CategoriaController::class);
+Route::apiResource('catalogos', CatalogoController::class);
+Route::apiResource('proveedores', ProveedorController::class);

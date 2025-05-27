@@ -8,15 +8,15 @@ class CreateCategoriaProductoTable extends Migration
 {
     public function up()
     {
-        Schema::create('Categoria_Producto', function (Blueprint $table) {
-            $table->foreignId('Producto_id')->constrained('Productos')->onDelete('cascade');
-            $table->foreignId('Categoria_id')->constrained('categories');
-            $table->primary(['Producto_id', 'Categoria_id']);
+        Schema::create('categoria_producto', function (Blueprint $table) {
+            $table->foreignId('producto_id')->constrained('productos')->onDelete('cascade');
+            $table->foreignId('categoria_id')->constrained('categorias');
+            $table->primary(['producto_id', 'categoria_id']);
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('Categoria_Producto');
+        Schema::dropIfExists('categoria_producto');
     }
 }

@@ -20,7 +20,7 @@ class CatalogoResource extends JsonResource
             'id' => $this->id,
             'nombre' => $this->nombre,
             'descripcion' => $this->descripcion,
-            'Proveedor_id' => $this->Proveedor_id,
+            'proveedor_id' => $this->proveedor_id,
             'photo_url' => $this->photo_path ? asset('storage/' . $this->photo_path) : null,
             'Proveedor' => new ProveedorResource($this->whenLoaded('Proveedor')),
         ];

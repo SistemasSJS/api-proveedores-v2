@@ -8,11 +8,11 @@ class CreateCatalogosTable extends Migration
 {
     public function up()
     {
-        Schema::create('Catalogos', function (Blueprint $table) {
+        Schema::create('catalogos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->text('descripcion')->nullable();
-            $table->foreignId('Proveedor_id')->constrained('Proveedors')->onDelete('cascade');
+            $table->foreignId('proveedor_id')->constrained('proveedores')->onDelete('cascade');
             $table->string('photo_path')->nullable();
             $table->timestamps();
         });
@@ -20,6 +20,6 @@ class CreateCatalogosTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('Catalogos');
+        Schema::dropIfExists('catalogos');
     }
 }

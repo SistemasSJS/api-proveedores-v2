@@ -19,7 +19,7 @@ class LineaController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/api/Lineas",
+     *     path="/api/lineas",
      *     tags={"Líneas"},
      *     summary="Listar líneas",
      *     @OA\Response(
@@ -34,13 +34,13 @@ class LineaController extends Controller
      */
     public function index(Request $request)
     {
-        $Lineas = Linea::paginate();
-        return LineaResource::collection($Lineas);
+        $lineas = Linea::paginate();
+        return LineaResource::collection($lineas);
     }
 
     /**
      * @OA\Post(
-     *     path="/api/Lineas",
+     *     path="/api/lineas",
      *     tags={"Líneas"},
      *     summary="Crear línea",
      *     @OA\RequestBody(
@@ -58,7 +58,7 @@ class LineaController extends Controller
     {
         $data = $request->validated();
         if ($request->hasFile('photo')) {
-            $data['photo_path'] = $request->file('photo')->store('Lineas', 'public');
+            $data['photo_path'] = $request->file('photo')->store('lineas', 'public');
         }
         $Linea = Linea::create($data);
         return new LineaResource($Linea);
@@ -66,7 +66,7 @@ class LineaController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/Lineas/{id}",
+     *     path="/api/lineas/{id}",
      *     tags={"Líneas"},
      *     summary="Obtener línea por ID",
      *     @OA\Parameter(
@@ -90,7 +90,7 @@ class LineaController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/api/Lineas/{id}",
+     *     path="/api/lineas/{id}",
      *     tags={"Líneas"},
      *     summary="Actualizar línea",
      *     @OA\Parameter(
@@ -117,7 +117,7 @@ class LineaController extends Controller
             if ($Linea->photo_path) {
                 Storage::disk('public')->delete($Linea->photo_path);
             }
-            $data['photo_path'] = $request->file('photo')->store('Lineas', 'public');
+            $data['photo_path'] = $request->file('photo')->store('lineas', 'public');
         }
         $Linea->update($data);
         return new LineaResource($Linea);
@@ -125,7 +125,7 @@ class LineaController extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/api/Lineas/{id}",
+     *     path="/api/lineas/{id}",
      *     tags={"Líneas"},
      *     summary="Eliminar línea",
      *     @OA\Parameter(

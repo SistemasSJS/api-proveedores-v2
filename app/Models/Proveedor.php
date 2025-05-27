@@ -14,12 +14,15 @@ use Illuminate\Database\Eloquent\Model;
  *     @OA\Property(property="direccion", type="string", nullable=true, example="Av. Central 123"),
  *     @OA\Property(property="telefono", type="string", nullable=true, example="555-1234"),
  *     @OA\Property(property="email", type="string", nullable=true, example="contacto@proveedor.com"),
- *     @OA\Property(property="photo_url", type="string", nullable=true, example="https://dominio.com/storage/Proveedors/si.jpg")
+ *     @OA\Property(property="photo_url", type="string", nullable=true, example="https://dominio.com/storage/proveedores/si.jpg")
  * )
  */
 class Proveedor extends Model
 {
         use HasFactory;
+
+    protected $table = 'proveedores';
+    
     protected $fillable = [
         'nombre',
         'direccion',
@@ -28,7 +31,7 @@ class Proveedor extends Model
         'photo_path',
     ];
 
-    public function Catalogos()
+    public function catalogos()
     {
         return $this->hasMany(Catalogo::class);
     }

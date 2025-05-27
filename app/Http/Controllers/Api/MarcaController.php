@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * @OA\Tag(
- *     name="Marcas",
+ *     name="marcas",
  *     description="Operaciones sobre marcas"
  * )
  */
@@ -19,8 +19,8 @@ class MarcaController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/api/Marcas",
-     *     tags={"Marcas"},
+     *     path="/api/marcas",
+     *     tags={"marcas"},
      *     summary="Listar marcas",
      *     @OA\Response(
      *         response=200,
@@ -34,14 +34,14 @@ class MarcaController extends Controller
      */
     public function index(Request $request)
     {
-        $Marcas = Marca::paginate();
-        return MarcaResource::collection($Marcas);
+        $marcas = Marca::paginate();
+        return MarcaResource::collection($marcas);
     }
 
     /**
      * @OA\Post(
-     *     path="/api/Marcas",
-     *     tags={"Marcas"},
+     *     path="/api/marcas",
+     *     tags={"marcas"},
      *     summary="Crear marca",
      *     @OA\RequestBody(
      *         required=true,
@@ -58,7 +58,7 @@ class MarcaController extends Controller
     {
         $data = $request->validated();
         if ($request->hasFile('photo')) {
-            $data['photo_path'] = $request->file('photo')->store('Marcas', 'public');
+            $data['photo_path'] = $request->file('photo')->store('marcas', 'public');
         }
         $Marca = Marca::create($data);
         return new MarcaResource($Marca);
@@ -66,8 +66,8 @@ class MarcaController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/Marcas/{id}",
-     *     tags={"Marcas"},
+     *     path="/api/marcas/{id}",
+     *     tags={"marcas"},
      *     summary="Obtener marca por ID",
      *     @OA\Parameter(
      *         name="id",
@@ -90,8 +90,8 @@ class MarcaController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/api/Marcas/{id}",
-     *     tags={"Marcas"},
+     *     path="/api/marcas/{id}",
+     *     tags={"marcas"},
      *     summary="Actualizar marca",
      *     @OA\Parameter(
      *         name="id",
@@ -117,7 +117,7 @@ class MarcaController extends Controller
             if ($Marca->photo_path) {
                 Storage::disk('public')->delete($Marca->photo_path);
             }
-            $data['photo_path'] = $request->file('photo')->store('Marcas', 'public');
+            $data['photo_path'] = $request->file('photo')->store('marcas', 'public');
         }
         $Marca->update($data);
         return new MarcaResource($Marca);
@@ -125,8 +125,8 @@ class MarcaController extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/api/Marcas/{id}",
-     *     tags={"Marcas"},
+     *     path="/api/marcas/{id}",
+     *     tags={"marcas"},
      *     summary="Eliminar marca",
      *     @OA\Parameter(
      *         name="id",

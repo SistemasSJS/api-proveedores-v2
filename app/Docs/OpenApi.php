@@ -4,7 +4,7 @@ namespace App\Docs;
 
 /**
  * @OA\Info(
- *     title="API de Proveedores",
+ *     title="API de proveedores",
  *     version="1.0.0",
  *     description="Documentación de la API para gestión de proveedores y Productoos."
  * )

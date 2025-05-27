@@ -19,7 +19,7 @@ class CatalogoController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/api/Catalogos",
+     *     path="/api/catalogos",
      *     tags={"Catálogos"},
      *     summary="Listar catálogos",
      *     @OA\Response(
@@ -34,13 +34,13 @@ class CatalogoController extends Controller
      */
     public function index(Request $request)
     {
-        $Catalogos = Catalogo::with('Proveedor')->paginate();
-        return CatalogoResource::collection($Catalogos);
+        $catalogos = Catalogo::with('Proveedor')->paginate();
+        return CatalogoResource::collection($catalogos);
     }
 
     /**
      * @OA\Post(
-     *     path="/api/Catalogos",
+     *     path="/api/catalogos",
      *     tags={"Catálogos"},
      *     summary="Crear catálogo",
      *     @OA\RequestBody(
@@ -58,7 +58,7 @@ class CatalogoController extends Controller
     {
         $data = $request->validated();
         if ($request->hasFile('photo')) {
-            $data['photo_path'] = $request->file('photo')->store('Catalogos', 'public');
+            $data['photo_path'] = $request->file('photo')->store('catalogos', 'public');
         }
         $Catalogo = Catalogo::create($data);
         return new CatalogoResource($Catalogo->fresh('Proveedor'));
@@ -66,7 +66,7 @@ class CatalogoController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/Catalogos/{id}",
+     *     path="/api/catalogos/{id}",
      *     tags={"Catálogos"},
      *     summary="Obtener catálogo por ID",
      *     @OA\Parameter(
@@ -91,7 +91,7 @@ class CatalogoController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/api/Catalogos/{id}",
+     *     path="/api/catalogos/{id}",
      *     tags={"Catálogos"},
      *     summary="Actualizar catálogo",
      *     @OA\Parameter(
@@ -118,7 +118,7 @@ class CatalogoController extends Controller
             if ($Catalogo->photo_path) {
                 Storage::disk('public')->delete($Catalogo->photo_path);
             }
-            $data['photo_path'] = $request->file('photo')->store('Catalogos', 'public');
+            $data['photo_path'] = $request->file('photo')->store('catalogos', 'public');
         }
         $Catalogo->update($data);
         return new CatalogoResource($Catalogo->fresh('Proveedor'));
@@ -126,7 +126,7 @@ class CatalogoController extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/api/Catalogos/{id}",
+     *     path="/api/catalogos/{id}",
      *     tags={"Catálogos"},
      *     summary="Eliminar catálogo",
      *     @OA\Parameter(

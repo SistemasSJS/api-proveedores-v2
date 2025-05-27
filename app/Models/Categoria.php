@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  *     @OA\Property(property="id", type="integer", example=1),
  *     @OA\Property(property="nombre", type="string", example="Herramientas eléctricas"),
  *     @OA\Property(property="descripcion", type="string", nullable=true, example="Categoría de herramientas eléctricas"),
- *     @OA\Property(property="photo_url", type="string", nullable=true, example="https://dominio.com/storage/categories/electricas.jpg")
+ *     @OA\Property(property="photo_url", type="string", nullable=true, example="https://dominio.com/storage/categoria/electricas.jpg")
  * )
  */
 class Categoria extends Model
@@ -24,8 +24,8 @@ class Categoria extends Model
         'photo_path',
     ];
 
-    public function Productos()
+    public function productos()
     {
-        return $this->belongsToMany(Producto::class, 'Categoria_Producto');
+        return $this->belongsToMany(Producto::class, 'categoria_producto');
     }
 }

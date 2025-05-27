@@ -4,11 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProveedorsTable extends Migration
+class CreateProveedoresTable extends Migration
 {
     public function up()
     {
-        Schema::create('Proveedors', function (Blueprint $table) {
+        Schema::create('proveedores', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('direccion')->nullable();
@@ -21,6 +21,6 @@ class CreateProveedorsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('Proveedors');
+        Schema::dropIfExists('proveedores');
     }
 }

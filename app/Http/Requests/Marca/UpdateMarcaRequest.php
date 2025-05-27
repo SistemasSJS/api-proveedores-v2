@@ -11,7 +11,7 @@ class UpdateMarcaRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'sometimes|string|max:255|unique:Marcas,nombre,' . $this->route('Marca'),
+            'nombre' => 'sometimes|string|max:255|unique:marcas,nombre,' . $this->route('Marca'),
             'photo'  => 'sometimes|image|max:2048',
         ];
     }

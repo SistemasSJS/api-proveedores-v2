@@ -9,8 +9,8 @@ class MarcaSeeder extends Seeder
 {
     public function run()
     {
-        $Marcas = ['Bosch', 'Makita', 'DeWalt', 'Hitachi', 'Black & Decker'];
-        foreach ($Marcas as $name) {
+        $marcas = ['Bosch', 'Makita', 'DeWalt', 'Hitachi', 'Black & Decker'];
+        foreach ($marcas as $name) {
             Marca::factory()->create(['nombre' => $name]);
         }
     }

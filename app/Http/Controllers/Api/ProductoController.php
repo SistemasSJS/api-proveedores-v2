@@ -34,7 +34,7 @@ class ProductoController extends Controller
      */
     public function index(Request $request)
     {
-        $Productos = Producto::with(['Catalogo', 'Marca', 'Linea', 'categories'])->paginate();
+        $Productos = Producto::with(['catalogo', 'marca', 'linea', 'categoria'])->paginate();
         return ProductoResource::collection($Productos);
     }
 
@@ -58,13 +58,13 @@ class ProductoController extends Controller
     {
         $data = $request->validated();
         if ($request->hasFile('photo')) {
-            $data['photo_path'] = $request->file('photo')->store('Productos', 'public');
+            $data['photo_path'] = $request->file('photo')->store('productos', 'public');
         }
         $Producto = Producto::create($data);
-        if (isset($data['categories'])) {
-            $Producto->categories()->sync($data['categories']);
+        if (isset($data['categoria'])) {
+            $Producto->categoria()->sync($data['categoria']);
         }
-        return new ProductoResource($Producto->fresh(['Catalogo', 'Marca', 'Linea', 'categories']));
+        return new ProductoResource($Producto->fresh(['catalogo', 'marca', 'linea', 'categoria']));
     }
 
     /**
@@ -88,7 +88,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $Producto)
     {
-        $Producto->load(['Catalogo', 'Marca', 'Linea', 'categories']);
+        $Producto->load(['catalogo', 'marca', 'linea', 'categoria']);
         return new ProductoResource($Producto);
     }
 
@@ -121,13 +121,13 @@ class ProductoController extends Controller
             if ($Producto->photo_path) {
                 Storage::disk('public')->delete($Producto->photo_path);
             }
-            $data['photo_path'] = $request->file('photo')->store('Productos', 'public');
+            $data['photo_path'] = $request->file('photo')->store('productos', 'public');
         }
         $Producto->update($data);
-        if (isset($data['categories'])) {
-            $Producto->categories()->sync($data['categories']);
+        if (isset($data['categoria'])) {
+            $Producto->categoria()->sync($data['categoria']);
         }
-        return new ProductoResource($Producto->fresh(['Catalogo', 'Marca', 'Linea', 'categories']));
+        return new ProductoResource($Producto->fresh(['catalogo', 'marca', 'linea', 'categoria']));
     }
 
     /**
@@ -149,7 +149,7 @@ class ProductoController extends Controller
         if ($Producto->photo_path) {
             Storage::disk('public')->delete($Producto->photo_path);
         }
-        $Producto->categories()->detach();
+        $Producto->categoria()->detach();
         $Producto->delete();
         return response()->json(['message' => 'Productoo eliminado']);
     }

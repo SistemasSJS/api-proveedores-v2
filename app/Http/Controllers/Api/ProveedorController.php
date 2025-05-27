@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * @OA\Tag(
- *     name="Proveedores",
+ *     name="proveedores",
  *     description="Operaciones sobre proveedores"
  * )
  */
@@ -19,8 +19,8 @@ class ProveedorController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/api/Proveedors",
-     *     tags={"Proveedores"},
+     *     path="/api/proveedores",
+     *     tags={"proveedores"},
      *     summary="Listar proveedores",
      *     @OA\Response(
      *         response=200,
@@ -34,14 +34,14 @@ class ProveedorController extends Controller
      */
     public function index(Request $request)
     {
-        $Proveedors = Proveedor::paginate();
-        return ProveedorResource::collection($Proveedors);
+        $proveedores = Proveedor::paginate();
+        return ProveedorResource::collection($proveedores);
     }
 
     /**
      * @OA\Post(
-     *     path="/api/Proveedors",
-     *     tags={"Proveedores"},
+     *     path="/api/proveedores",
+     *     tags={"proveedores"},
      *     summary="Crear proveedor",
      *     @OA\RequestBody(
      *         required=true,
@@ -58,7 +58,7 @@ class ProveedorController extends Controller
     {
         $data = $request->validated();
         if ($request->hasFile('photo')) {
-            $data['photo_path'] = $request->file('photo')->store('Proveedors', 'public');
+            $data['photo_path'] = $request->file('photo')->store('proveedores', 'public');
         }
         $Proveedor = Proveedor::create($data);
         return new ProveedorResource($Proveedor);
@@ -66,8 +66,8 @@ class ProveedorController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/Proveedors/{id}",
-     *     tags={"Proveedores"},
+     *     path="/api/proveedores/{id}",
+     *     tags={"proveedores"},
      *     summary="Obtener proveedor por ID",
      *     @OA\Parameter(
      *         name="id",
@@ -90,8 +90,8 @@ class ProveedorController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/api/Proveedors/{id}",
-     *     tags={"Proveedores"},
+     *     path="/api/proveedores/{id}",
+     *     tags={"proveedores"},
      *     summary="Actualizar proveedor",
      *     @OA\Parameter(
      *         name="id",
@@ -117,7 +117,7 @@ class ProveedorController extends Controller
             if ($Proveedor->photo_path) {
                 Storage::disk('public')->delete($Proveedor->photo_path);
             }
-            $data['photo_path'] = $request->file('photo')->store('Proveedors', 'public');
+            $data['photo_path'] = $request->file('photo')->store('proveedores', 'public');
         }
         $Proveedor->update($data);
         return new ProveedorResource($Proveedor);
@@ -125,8 +125,8 @@ class ProveedorController extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/api/Proveedors/{id}",
-     *     tags={"Proveedores"},
+     *     path="/api/proveedores/{id}",
+     *     tags={"proveedores"},
      *     summary="Eliminar proveedor",
      *     @OA\Parameter(
      *         name="id",

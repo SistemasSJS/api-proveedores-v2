@@ -13,18 +13,18 @@ class ProductoSeeder extends Seeder
 {
     public function run()
     {
-        $Marcas = Marca::all();
-        $Lineas = Linea::all();
-        $categories = Categoria::all();
-        $Catalogos = Catalogo::all();
+        $marcas = Marca::all();
+        $lineas = Linea::all();
+        $categoria = Categoria::all();
+        $catalogos = Catalogo::all();
 
-        foreach ($Catalogos as $Catalogo) {
+        foreach ($catalogos as $Catalogo) {
             Producto::factory()->count(10)->create([
-                'Catalogo_id' => $Catalogo->id,
-                'Marca_id' => $Marcas->random()->id,
-                'Linea_id' => $Lineas->random()->id,
-            ])->each(function ($Producto) use ($categories) {
-                $Producto->categories()->attach($categories->random(rand(1, 3))->pluck('id')->toArray());
+                'catalogo_id' => $Catalogo->id,
+                'marca_id' => $marcas->random()->id,
+                'linea_id' => $lineas->random()->id,
+            ])->each(function ($Producto) use ($categoria) {
+                $Producto->categorias()->attach($categoria->random(rand(1, 3))->pluck('id')->toArray());
             });
         }
     }

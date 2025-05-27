@@ -19,7 +19,7 @@ class CategoriaController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/api/categories",
+     *     path="/api/categoria",
      *     tags={"Categorías"},
      *     summary="Listar categorías",
      *     @OA\Response(
@@ -34,13 +34,13 @@ class CategoriaController extends Controller
      */
     public function index(Request $request)
     {
-        $categories = Categoria::paginate();
-        return CategoriaResource::collection($categories);
+        $categoria = Categoria::paginate();
+        return CategoriaResource::collection($categoria);
     }
 
     /**
      * @OA\Post(
-     *     path="/api/categories",
+     *     path="/api/categoria",
      *     tags={"Categorías"},
      *     summary="Crear categoría",
      *     @OA\RequestBody(
@@ -58,7 +58,7 @@ class CategoriaController extends Controller
     {
         $data = $request->validated();
         if ($request->hasFile('photo')) {
-            $data['photo_path'] = $request->file('photo')->store('categories', 'public');
+            $data['photo_path'] = $request->file('photo')->store('categoria', 'public');
         }
         $Categoria = Categoria::create($data);
         return new CategoriaResource($Categoria);
@@ -66,7 +66,7 @@ class CategoriaController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/categories/{id}",
+     *     path="/api/categoria/{id}",
      *     tags={"Categorías"},
      *     summary="Obtener categoría por ID",
      *     @OA\Parameter(
@@ -90,7 +90,7 @@ class CategoriaController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/api/categories/{id}",
+     *     path="/api/categoria/{id}",
      *     tags={"Categorías"},
      *     summary="Actualizar categoría",
      *     @OA\Parameter(
@@ -117,7 +117,7 @@ class CategoriaController extends Controller
             if ($Categoria->photo_path) {
                 Storage::disk('public')->delete($Categoria->photo_path);
             }
-            $data['photo_path'] = $request->file('photo')->store('categories', 'public');
+            $data['photo_path'] = $request->file('photo')->store('categoria', 'public');
         }
         $Categoria->update($data);
         return new CategoriaResource($Categoria);
@@ -125,7 +125,7 @@ class CategoriaController extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/api/categories/{id}",
+     *     path="/api/categoria/{id}",
      *     tags={"Categorías"},
      *     summary="Eliminar categoría",
      *     @OA\Parameter(

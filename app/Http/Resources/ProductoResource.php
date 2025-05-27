@@ -18,20 +18,20 @@ class ProductoResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'Catalogo_id' => $this->Catalogo_id,
+            'catalogo_id' => $this->catalogo_id,
             'nombre' => $this->nombre,
             'descripcion' => $this->descripcion,
             'sku' => $this->sku,
             'precio' => $this->precio,
             'cantidad_disponible' => $this->cantidad_disponible,
-            'Marca_id' => $this->Marca_id,
-            'Linea_id' => $this->Linea_id,
+            'marca_id' => $this->marca_id,
+            'linea_id' => $this->linea_id,
             'activo' => $this->activo,
             'photo_url' => $this->photo_path ? asset('storage/' . $this->photo_path) : null,
             'Catalogo' => new CatalogoResource($this->whenLoaded('Catalogo')),
             'Marca' => new MarcaResource($this->whenLoaded('Marca')),
             'Linea' => new LineaResource($this->whenLoaded('Linea')),
-            'categories' => CategoriaResource::collection($this->whenLoaded('categories')),
+            'categoria' => CategoriaResource::collection($this->whenLoaded('categoria')),
         ];
     }
 }

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  *     required={"nombre"},
  *     @OA\Property(property="id", type="integer", example=1),
  *     @OA\Property(property="nombre", type="string", example="Industrial"),
- *     @OA\Property(property="photo_url", type="string", nullable=true, example="https://dominio.com/storage/Lineas/industrial.jpg")
+ *     @OA\Property(property="photo_url", type="string", nullable=true, example="https://dominio.com/storage/lineas/industrial.jpg")
  * )
  */
 class Linea extends Model
@@ -22,7 +22,7 @@ class Linea extends Model
         'photo_path',
     ];
 
-    public function Productos()
+    public function productos()
     {
         return $this->hasMany(Producto::class);
     }

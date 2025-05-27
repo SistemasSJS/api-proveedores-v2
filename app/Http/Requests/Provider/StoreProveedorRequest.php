@@ -11,7 +11,7 @@ class StoreProveedorRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'    => 'required|string|max:255|unique:Proveedors,nombre',
+            'nombre'    => 'required|string|max:255|unique:proveedores,nombre',
             'direccion' => 'nullable|string|max:255',
             'telefono'  => 'nullable|string|max:50',
             'email'     => 'nullable|email|max:255',

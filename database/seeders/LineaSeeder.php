@@ -9,8 +9,8 @@ class LineaSeeder extends Seeder
 {
     public function run()
     {
-        $Lineas = ['Power Tools', 'Hand Tools', 'Accessories', 'Gardening', 'Measuring'];
-        foreach ($Lineas as $name) {
+        $lineas = ['Power Tools', 'Hand Tools', 'Accessories', 'Gardening', 'Measuring'];
+        foreach ($lineas as $name) {
             Linea::factory()->create(['nombre' => $name]);
         }
     }

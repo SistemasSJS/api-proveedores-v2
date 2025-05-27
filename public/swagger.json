@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "API de Proveedores",
+        "title": "API de proveedores",
         "description": "Documentación de la API de autenticación y gestión de proveedores.",
         "contact": {
             "name": "Soporte",
@@ -1618,10 +1618,10 @@
         "/api/proveedores": {
             "get": {
                 "tags": [
-                    "Proveedores"
+                    "proveedores"
                 ],
                 "summary": "Listar proveedores",
-                "operationId": "getProveedores",
+                "operationId": "getproveedores",
                 "parameters": [
                     {
                         "name": "nombre_comercial",
@@ -1759,7 +1759,7 @@
         "/api/proveedores/{id}": {
             "get": {
                 "tags": [
-                    "Proveedores"
+                    "proveedores"
                 ],
                 "summary": "Obtener un proveedor específico",
                 "operationId": "getProveedor",
@@ -1804,7 +1804,7 @@
             },
             "put": {
                 "tags": [
-                    "Proveedores"
+                    "proveedores"
                 ],
                 "summary": "Actualizar proveedor",
                 "operationId": "updateProveedor",
@@ -1862,7 +1862,7 @@
             },
             "delete": {
                 "tags": [
-                    "Proveedores"
+                    "proveedores"
                 ],
                 "summary": "Eliminar proveedor",
                 "operationId": "deleteProveedor",
@@ -3460,7 +3460,7 @@
     },
     "tags": [
         {
-            "name": "Proveedores",
+            "name": "proveedores",
             "description": "CRUD de proveedores"
         },
         {

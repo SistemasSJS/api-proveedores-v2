@@ -11,7 +11,7 @@ class StoreLineaRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|string|max:255|unique:Lineas,nombre',
+            'nombre' => 'required|string|max:255|unique:lineas,nombre',
             'photo'  => 'nullable|image|max:2048',
         ];
     }

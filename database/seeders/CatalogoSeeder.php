@@ -10,11 +10,11 @@ class CatalogoSeeder extends Seeder
 {
     public function run()
     {
-        $Proveedors = Proveedor::all();
+        $proveedores = Proveedor::all();
 
-        foreach ($Proveedors as $Proveedor) {
+        foreach ($proveedores as $Proveedor) {
             Catalogo::factory()->count(3)->create([
-                'Proveedor_id' => $Proveedor->id,
+                'proveedor_id' => $Proveedor->id,
             ]);
         }
     }

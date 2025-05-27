@@ -8,7 +8,7 @@ class CreateLineasTable extends Migration
 {
     public function up()
     {
-        Schema::create('Lineas', function (Blueprint $table) {
+        Schema::create('lineas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->unique();
             $table->string('photo_path')->nullable();
@@ -18,6 +18,6 @@ class CreateLineasTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('Lineas');
+        Schema::dropIfExists('lineas');
     }
 }

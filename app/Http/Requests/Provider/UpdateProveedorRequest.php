@@ -11,7 +11,7 @@ class UpdateProveedorRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'    => 'sometimes|string|max:255|unique:Proveedors,nombre,' . $this->route('Proveedor'),
+            'nombre'    => 'sometimes|string|max:255|unique:proveedores,nombre,' . $this->route('Proveedor'),
             'direccion' => 'sometimes|string|max:255',
             'telefono'  => 'sometimes|string|max:50',
             'email'     => 'sometimes|email|max:255',

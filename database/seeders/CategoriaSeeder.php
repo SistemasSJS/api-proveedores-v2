@@ -9,8 +9,8 @@ class CategoriaSeeder extends Seeder
 {
     public function run()
     {
-        $categories = ['Herramientas Eléctricas', 'Herramientas Manuales', 'Accesorios', 'Jardinería', 'Medición'];
-        foreach ($categories as $name) {
+        $categoria = ['Herramientas Eléctricas', 'Herramientas Manuales', 'Accesorios', 'Jardinería', 'Medición'];
+        foreach ($categoria as $name) {
             Categoria::factory()->create(['nombre' => $name]);
         }
     }

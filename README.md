@@ -1,4 +1,4 @@
-# Proveedores API Full Rest
+# proveedores API Full Rest
 
 _Aplicacion para manejo de catalago de proveedores._
 
@@ -85,7 +85,7 @@ Editar
 /**
  * @OA\Get(
  *     path="/api/proveedores",
- *     tags={"Proveedores"},
+ *     tags={"proveedores"},
  *     summary="Listar todos los proveedores",
  *     @OA\Response(
  *         response=200,
