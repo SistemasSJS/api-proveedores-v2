@@ -34,7 +34,7 @@ class ProductoController extends Controller
      */
     public function index(Request $request)
     {
-        $Productos = Producto::with(['catalogo', 'marca', 'linea', 'categoria'])->paginate();
+        $Productos = Producto::with(['catalogo', 'marca', 'linea', 'categorias'])->paginate();
         return ProductoResource::collection($Productos);
     }
 
