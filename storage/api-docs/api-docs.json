@@ -1,0 +1,1211 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de Proveedores",
+        "description": "Documentación de la API para gestión de proveedores y productos.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8080",
+            "description": "Servidor local de desarrollo"
+        }
+    ],
+    "paths": {
+        "/api/brands": {
+            "get": {
+                "tags": [
+                    "Marcas"
+                ],
+                "summary": "Listar marcas",
+                "operationId": "130f2bd423b6fe2355253e2c39878d99",
+                "responses": {
+                    "200": {
+                        "description": "Lista de marcas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Brand"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Marcas"
+                ],
+                "summary": "Crear marca",
+                "operationId": "283de011874bd2a1ada6efafb676e83f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Brand"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Marca creada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Brand"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/brands/{id}": {
+            "get": {
+                "tags": [
+                    "Marcas"
+                ],
+                "summary": "Obtener marca por ID",
+                "operationId": "2086e16f9b1a70aea714677ef42808a7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Marca encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Brand"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No encontrada"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Marcas"
+                ],
+                "summary": "Actualizar marca",
+                "operationId": "40baf1fc4e11f1ccc369eb0b36b56f54",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Brand"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Marca actualizada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Brand"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Marcas"
+                ],
+                "summary": "Eliminar marca",
+                "operationId": "b3f38ad7a979e5c78ac4e95ceb640c7e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Marca eliminada"
+                    }
+                }
+            }
+        },
+        "/api/catalogs": {
+            "get": {
+                "tags": [
+                    "Catálogos"
+                ],
+                "summary": "Listar catálogos",
+                "operationId": "2de47344f80dad94ce3c3ed9b16b7685",
+                "responses": {
+                    "200": {
+                        "description": "Lista de catálogos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Catalog"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Catálogos"
+                ],
+                "summary": "Crear catálogo",
+                "operationId": "c50835f0245616623066ebf6e427d35a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Catalog"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Catálogo creado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Catalog"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/catalogs/{id}": {
+            "get": {
+                "tags": [
+                    "Catálogos"
+                ],
+                "summary": "Obtener catálogo por ID",
+                "operationId": "8442bb11a7f6c5456085cd8b5551afe3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Catálogo encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Catalog"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Catálogos"
+                ],
+                "summary": "Actualizar catálogo",
+                "operationId": "56c948c8e14a4962c776db7708d51832",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Catalog"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Catálogo actualizado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Catalog"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Catálogos"
+                ],
+                "summary": "Eliminar catálogo",
+                "operationId": "6bdc718a93c23a657aec9dbebcae9935",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Catálogo eliminado"
+                    }
+                }
+            }
+        },
+        "/api/categories": {
+            "get": {
+                "tags": [
+                    "Categorías"
+                ],
+                "summary": "Listar categorías",
+                "operationId": "ac9c4d978ea4e5b72915ca9728e5b8b1",
+                "responses": {
+                    "200": {
+                        "description": "Lista de categorías",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Category"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Categorías"
+                ],
+                "summary": "Crear categoría",
+                "operationId": "cca49a87d9b0ebb9a98ad7c154b71737",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Category"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Categoría creada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/categories/{id}": {
+            "get": {
+                "tags": [
+                    "Categorías"
+                ],
+                "summary": "Obtener categoría por ID",
+                "operationId": "09767bb2e47dde77dd1e2591428b0ae1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Categoría encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No encontrada"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Categorías"
+                ],
+                "summary": "Actualizar categoría",
+                "operationId": "7dcf71887e585de7f881e9eb98d86126",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Category"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Categoría actualizada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Categorías"
+                ],
+                "summary": "Eliminar categoría",
+                "operationId": "9b61b65823f4a21f182506b34ddf805c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Categoría eliminada"
+                    }
+                }
+            }
+        },
+        "/api/lines": {
+            "get": {
+                "tags": [
+                    "Líneas"
+                ],
+                "summary": "Listar líneas",
+                "operationId": "7d5be8dca63fef1eea6850c2e8db0402",
+                "responses": {
+                    "200": {
+                        "description": "Lista de líneas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Line"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Líneas"
+                ],
+                "summary": "Crear línea",
+                "operationId": "ab982d4b990392146987d7ec616b8762",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Line"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Línea creada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Line"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lines/{id}": {
+            "get": {
+                "tags": [
+                    "Líneas"
+                ],
+                "summary": "Obtener línea por ID",
+                "operationId": "eec51f9eac0c56224785b799e5926ad9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Línea encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Line"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No encontrada"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Líneas"
+                ],
+                "summary": "Actualizar línea",
+                "operationId": "7c571c3c6e139bd34eead1bf9abb3dd2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Line"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Línea actualizada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Line"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Líneas"
+                ],
+                "summary": "Eliminar línea",
+                "operationId": "f034cdff552065ca0f6ab85bd20d7def",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Línea eliminada"
+                    }
+                }
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Listar productos",
+                "operationId": "d97d1c3727cbac49708b85f7d11f7d58",
+                "responses": {
+                    "200": {
+                        "description": "Lista de productos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Product"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Crear producto",
+                "operationId": "785644b7d7dd38af4b51dafd0fbc1b6d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Producto creado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Obtener producto por ID",
+                "operationId": "c87fb2e4d617e7b36c712cad358acdb8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Producto encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Actualizar producto",
+                "operationId": "416e4959a3919547eb609d87e3db9135",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Producto actualizado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Eliminar producto",
+                "operationId": "b49ce9f3cb168b233245548fb4ef36d3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Producto eliminado"
+                    }
+                }
+            }
+        },
+        "/api/providers": {
+            "get": {
+                "tags": [
+                    "Proveedores"
+                ],
+                "summary": "Listar proveedores",
+                "operationId": "d99e139f235d5222c74789c37512fc95",
+                "responses": {
+                    "200": {
+                        "description": "Lista de proveedores",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Provider"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Proveedores"
+                ],
+                "summary": "Crear proveedor",
+                "operationId": "8d61f862240fcb54ca4379f8211c756f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Provider"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Proveedor creado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Provider"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/providers/{id}": {
+            "get": {
+                "tags": [
+                    "Proveedores"
+                ],
+                "summary": "Obtener proveedor por ID",
+                "operationId": "2e8a9bc6272603d6fc877d77d9472c78",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Proveedor encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Provider"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Proveedores"
+                ],
+                "summary": "Actualizar proveedor",
+                "operationId": "9f26750a48584c4e9d4a861e4d024d1c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Provider"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Proveedor actualizado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Provider"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Proveedores"
+                ],
+                "summary": "Eliminar proveedor",
+                "operationId": "1aa03e6dae527bbdd64b73a803e0a142",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Proveedor eliminado"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BrandResource": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Brand"
+                    }
+                ]
+            },
+            "CatalogResource": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Catalog"
+                    }
+                ]
+            },
+            "LineResource": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Line"
+                    }
+                ]
+            },
+            "ProductResource": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Product"
+                    }
+                ]
+            },
+            "ProviderResource": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Provider"
+                    }
+                ]
+            },
+            "Brand": {
+                "required": [
+                    "nombre"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "example": "Bosch"
+                    },
+                    "photo_url": {
+                        "type": "string",
+                        "example": "https://dominio.com/storage/brands/bosch.jpg",
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            },
+            "Catalog": {
+                "required": [
+                    "nombre",
+                    "provider_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "example": "Catálogo 2024"
+                    },
+                    "descripcion": {
+                        "type": "string",
+                        "example": "Catálogo anual de productos",
+                        "nullable": true
+                    },
+                    "provider_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "photo_url": {
+                        "type": "string",
+                        "example": "https://dominio.com/storage/catalogs/2024.jpg",
+                        "nullable": true
+                    },
+                    "provider": {
+                        "$ref": "#/components/schemas/Provider"
+                    }
+                },
+                "type": "object"
+            },
+            "Category": {
+                "required": [
+                    "nombre"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "example": "Herramientas eléctricas"
+                    },
+                    "descripcion": {
+                        "type": "string",
+                        "example": "Categoría de herramientas eléctricas",
+                        "nullable": true
+                    },
+                    "photo_url": {
+                        "type": "string",
+                        "example": "https://dominio.com/storage/categories/electricas.jpg",
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            },
+            "Line": {
+                "required": [
+                    "nombre"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "example": "Industrial"
+                    },
+                    "photo_url": {
+                        "type": "string",
+                        "example": "https://dominio.com/storage/lines/industrial.jpg",
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            },
+            "Product": {
+                "required": [
+                    "catalog_id",
+                    "nombre",
+                    "sku"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "catalog_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "example": "Taladro Bosch"
+                    },
+                    "descripcion": {
+                        "type": "string",
+                        "example": "Herramienta eléctrica",
+                        "nullable": true
+                    },
+                    "sku": {
+                        "type": "string",
+                        "example": "SKU-001"
+                    },
+                    "precio": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 199.99
+                    },
+                    "cantidad_disponible": {
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "brand_id": {
+                        "type": "integer",
+                        "example": 1,
+                        "nullable": true
+                    },
+                    "line_id": {
+                        "type": "integer",
+                        "example": 1,
+                        "nullable": true
+                    },
+                    "activo": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "photo_url": {
+                        "type": "string",
+                        "example": "https://dominio.com/storage/products/sku-001.jpg",
+                        "nullable": true
+                    },
+                    "catalog": {
+                        "$ref": "#/components/schemas/Catalog"
+                    },
+                    "brand": {
+                        "$ref": "#/components/schemas/Brand"
+                    },
+                    "line": {
+                        "$ref": "#/components/schemas/Line"
+                    },
+                    "categories": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Category"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Provider": {
+                "required": [
+                    "nombre"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "example": "Suministros Industriales S.A."
+                    },
+                    "direccion": {
+                        "type": "string",
+                        "example": "Av. Central 123",
+                        "nullable": true
+                    },
+                    "telefono": {
+                        "type": "string",
+                        "example": "555-1234",
+                        "nullable": true
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "contacto@proveedor.com",
+                        "nullable": true
+                    },
+                    "photo_url": {
+                        "type": "string",
+                        "example": "https://dominio.com/storage/providers/si.jpg",
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Marcas",
+            "description": "Operaciones sobre marcas"
+        },
+        {
+            "name": "Catálogos",
+            "description": "Operaciones sobre catálogos"
+        },
+        {
+            "name": "Categorías",
+            "description": "Operaciones sobre categorías"
+        },
+        {
+            "name": "Líneas",
+            "description": "Operaciones sobre líneas"
+        },
+        {
+            "name": "Productos",
+            "description": "Operaciones sobre productos"
+        },
+        {
+            "name": "Proveedores",
+            "description": "Operaciones sobre proveedores"
+        }
+    ]
+}
