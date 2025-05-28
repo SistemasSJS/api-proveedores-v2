@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  *     required={"nombre", "proveedor_id"},
  *     @OA\Property(property="id", type="integer", example=1),
  *     @OA\Property(property="nombre", type="string", example="Catálogo 2024"),
- *     @OA\Property(property="descripcion", type="string", nullable=true, example="Catálogo anual de Productoos"),
+ *     @OA\Property(property="descripcion", type="string", nullable=true, example="Catálogo anual de Productos"),
  *     @OA\Property(property="proveedor_id", type="integer", example=1),
  *     @OA\Property(property="photo_url", type="string", nullable=true, example="https://dominio.com/storage/catalogos/2024.jpg"),
  *     @OA\Property(property="Proveedor", ref="#/components/schemas/Proveedor")

@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * @OA\Tag(
- *     name="Productoos",
- *     description="Operaciones sobre Productoos"
+ *     name="Productos",
+ *     description="Operaciones sobre Productos"
  * )
  */
 class ProductoController extends Controller
@@ -20,11 +20,11 @@ class ProductoController extends Controller
     /**
      * @OA\Get(
      *     path="/api/Productos",
-     *     tags={"Productoos"},
-     *     summary="Listar Productoos",
+     *     tags={"Productos"},
+     *     summary="Listar Productos",
      *     @OA\Response(
      *         response=200,
-     *         description="Lista de Productoos",
+     *         description="Lista de Productos",
      *         @OA\JsonContent(
      *             type="object",
      *             @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/Producto"))
@@ -41,7 +41,7 @@ class ProductoController extends Controller
     /**
      * @OA\Post(
      *     path="/api/Productos",
-     *     tags={"Productoos"},
+     *     tags={"Productos"},
      *     summary="Crear Productoo",
      *     @OA\RequestBody(
      *         required=true,
@@ -70,7 +70,7 @@ class ProductoController extends Controller
     /**
      * @OA\Get(
      *     path="/api/Productos/{id}",
-     *     tags={"Productoos"},
+     *     tags={"Productos"},
      *     summary="Obtener Productoo por ID",
      *     @OA\Parameter(
      *         name="id",
@@ -95,7 +95,7 @@ class ProductoController extends Controller
     /**
      * @OA\Put(
      *     path="/api/Productos/{id}",
-     *     tags={"Productoos"},
+     *     tags={"Productos"},
      *     summary="Actualizar Productoo",
      *     @OA\Parameter(
      *         name="id",
@@ -133,7 +133,7 @@ class ProductoController extends Controller
     /**
      * @OA\Delete(
      *     path="/api/Productos/{id}",
-     *     tags={"Productoos"},
+     *     tags={"Productos"},
      *     summary="Eliminar Productoo",
      *     @OA\Parameter(
      *         name="id",

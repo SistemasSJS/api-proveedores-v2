@@ -2,12 +2,12 @@
     "openapi": "3.0.0",
     "info": {
         "title": "API de proveedores",
-        "description": "Documentación de la API para gestión de proveedores y Productoos.",
+        "description": "Documentación de la API para gestión de proveedores y Productos.",
         "version": "1.0.0"
     },
     "servers": [
         {
-            "url": "http://127.0.0.1:8080",
+            "url": "http://localhost:8080",
             "description": "Servidor local de desarrollo"
         }
     ],
@@ -627,13 +627,13 @@
         "/api/Productos": {
             "get": {
                 "tags": [
-                    "Productoos"
+                    "Productos"
                 ],
-                "summary": "Listar Productoos",
+                "summary": "Listar Productos",
                 "operationId": "ff0b4a6165eba88343b119b397f54468",
                 "responses": {
                     "200": {
-                        "description": "Lista de Productoos",
+                        "description": "Lista de Productos",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -654,7 +654,7 @@
             },
             "post": {
                 "tags": [
-                    "Productoos"
+                    "Productos"
                 ],
                 "summary": "Crear Productoo",
                 "operationId": "934969049f06975f7e91ea42a28a086b",
@@ -685,7 +685,7 @@
         "/api/Productos/{id}": {
             "get": {
                 "tags": [
-                    "Productoos"
+                    "Productos"
                 ],
                 "summary": "Obtener Productoo por ID",
                 "operationId": "3bcf4435395d7e4f59684622ce37c95e",
@@ -717,7 +717,7 @@
             },
             "put": {
                 "tags": [
-                    "Productoos"
+                    "Productos"
                 ],
                 "summary": "Actualizar Productoo",
                 "operationId": "b646a2fb0e838123526151f272c1108c",
@@ -756,7 +756,7 @@
             },
             "delete": {
                 "tags": [
-                    "Productoos"
+                    "Productos"
                 ],
                 "summary": "Eliminar Productoo",
                 "operationId": "bc22f4873704423dfea7f572d0663f3a",
@@ -773,6 +773,74 @@
                 "responses": {
                     "204": {
                         "description": "Productoo eliminado"
+                    }
+                }
+            }
+        },
+        "/api/import": {
+            "post": {
+                "tags": [
+                    "ProductosImport"
+                ],
+                "summary": "Importar productos desde un archivo CSV",
+                "description": "Este endpoint permite importar productos desde un archivo CSV. El archivo debe contener información sobre marcas, líneas, catálogos, proveedores y categorías.",
+                "operationId": "importarProductos",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "file"
+                                ],
+                                "properties": {
+                                    "file": {
+                                        "description": "Archivo CSV con los datos de productos",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Productos importados correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Productos importados correctamente."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error al importar productos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Error al importar productos"
+                                        },
+                                        "details": {
+                                            "type": "string",
+                                            "example": "Descripción del error interno"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -984,7 +1052,7 @@
                     },
                     "descripcion": {
                         "type": "string",
-                        "example": "Catálogo anual de Productoos",
+                        "example": "Catálogo anual de Productos",
                         "nullable": true
                     },
                     "proveedor_id": {
@@ -1200,8 +1268,12 @@
             "description": "Operaciones sobre marcas"
         },
         {
-            "name": "Productoos",
-            "description": "Operaciones sobre Productoos"
+            "name": "Productos",
+            "description": "Operaciones sobre Productos"
+        },
+        {
+            "name": "ProductosImport",
+            "description": "Operaciones Import sobre Productos"
         },
         {
             "name": "proveedores",

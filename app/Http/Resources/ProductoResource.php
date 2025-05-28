@@ -28,10 +28,10 @@ class ProductoResource extends JsonResource
             'linea_id' => $this->linea_id,
             'activo' => $this->activo,
             'photo_url' => $this->photo_path ? asset('storage/' . $this->photo_path) : null,
-            'Catalogo' => new CatalogoResource($this->whenLoaded('Catalogo')),
-            'Marca' => new MarcaResource($this->whenLoaded('Marca')),
-            'Linea' => new LineaResource($this->whenLoaded('Linea')),
-            'categoria' => CategoriaResource::collection($this->whenLoaded('categoria')),
+            'Catalogo' => new CatalogoResource($this->whenLoaded('catalogo')),
+            'Marca' => new MarcaResource($this->whenLoaded('marca')),
+            'Linea' => new LineaResource($this->whenLoaded('linea')),
+            'categoria' => CategoriaResource::collection($this->whenLoaded('categorias')),
         ];
     }
 }
